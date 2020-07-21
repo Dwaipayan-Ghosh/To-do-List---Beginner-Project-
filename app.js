@@ -51,6 +51,13 @@ ul.addEventListener('click', function(e){
     //DELETE THEM
     if( item.classList[0] === 'delete'){
         item.parentElement.remove();
+        let delitem=JSON.parse( localStorage.getItem('todos'));
+        delitem.forEach(element => {
+            if(element == item.parentElement.firstElementChild.innerHTML){
+                delitem.splice(delitem.indexOf(element),1);
+                localStorage.setItem('todos', JSON.stringify(delitem))
+            }
+        });
     }
      
     //CHECKMARK THEM
@@ -110,7 +117,9 @@ function gettodo(){
         todos = JSON.parse(localStorage.getItem('todos'));
     }
     todos.forEach(todo => {
-         //create li 
+    
+    
+    //create li 
     const li= document.createElement('li');
     li.className = "todo";
 

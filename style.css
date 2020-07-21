@@ -42,7 +42,7 @@ input{
 label{
     position: absolute;
     display: block;
-    left: 2%;
+    left:0;
     pointer-events: none;
     transition: 0.4s ease;
 }
@@ -104,10 +104,7 @@ ul li a:hover::before {
     background-size: cover;
 }
 .completed::before{
-    background-color: lightgrey;
-    background-image: url('tick.png');
-    background-position: center;
-    background-size: cover;
+    display: none;
 }
 .completed{
     text-decoration: line-through;
