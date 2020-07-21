@@ -1,0 +1,146 @@
+:root{
+    font-family: sans-serif;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    background-color: rgb(153, 153, 153);
+}
+h1{
+    font-size: 3rem;
+    font-weight: 100;
+    top: 15%;
+    margin-top: 60px;
+    margin-bottom: 20px;
+}
+form{
+    width: 30%;
+    height: 3.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+}
+input{
+    padding: 10px;
+    width: 100%;
+    font-size: 1.1rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+}
+label{
+    position: absolute;
+    display: block;
+    left: 2%;
+    pointer-events: none;
+    transition: 0.4s ease;
+}
+form:focus label, form:active label, form:focus-within label{
+    padding-bottom: 2.5rem;
+    opacity: 0.8;
+    font-size: 90%;
+}
+button{
+    padding: 10px;
+    margin-left: 20px;
+    border-radius: 12px;
+    background-color: transparent;
+    border: 1px solid black;
+    outline: none;
+    cursor: pointer;
+}
+button:hover{
+    background-color: rgb(36, 36, 36);
+    color: lightgrey;
+}
+
+ul{
+    justify-content: center;
+    width: 40%;
+}
+ul li{
+    width: 100%;
+    height: 80px;
+    list-style-type: none;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    margin: 20px;
+    display: flex;
+}
+ul li a{
+    display: flex;
+    width: 90%;
+    height: 100%;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+ul li a::before{
+    content: '';
+    position: relative;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin-right: 0.8rem;
+    cursor: pointer;
+}
+ul li a:hover::before {
+    background-color: lightgrey;
+    background-image: url('tick.png');
+    background-position: center;
+    background-size: cover;
+}
+.completed::before{
+    background-color: lightgrey;
+    background-image: url('tick.png');
+    background-position: center;
+    background-size: cover;
+}
+.completed{
+    text-decoration: line-through;
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+.delete{
+    color: rgb(253, 0, 0);
+    border: none;
+    font-size: 1.3rem;
+}
+.bi-trash-fill{ pointer-events: none;}
+
+.bi-archive-fill{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 2rem;
+    margin: 2rem;
+    cursor: pointer;
+}
+.dropdown{
+    background-color: lightgrey;
+    position: absolute;
+    top: 30%;
+    left: 60%;
+    display: none;
+    padding: 3rem;
+    margin: 3rem;
+    z-index: 10;
+    border-radius: 20px;
+}
+.dropdown.open{
+    display: block;
+}
