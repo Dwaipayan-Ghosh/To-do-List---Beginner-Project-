@@ -63,8 +63,11 @@ ul.addEventListener('click', function(e){
     //CHECKMARK THEM
     if( item.classList[0] === 'todos'){
         item.classList.toggle('completed');
+        localStorage.setItem('compltodos', JSON.stringify(item.parentElement.firstElementChild.innerHTML));
         //moving completed tasks to dropdown menu
-        dropdown.appendChild(item.parentElement);
+        item.addEventListener('transitionend', () => {
+            dropdown.appendChild(item.parentElement);
+        });
     }
 });
 
@@ -96,15 +99,25 @@ dropdown.addEventListener('click', function(e){
 //function to save todos in localestorage
 function savingtodo(todo){
     let todos;
+    let compltodos;
     if(localStorage.getItem('todos')== null){
         todos = [];
+        compltodos = [];
     }
     else{
         todos = JSON.parse(localStorage.getItem('todos'));
+        compltodos = JSON.parse(localStorage.getItem('compltodos'));
     }
 
     todos.push(todo);
-    localStorage.setItem('todos', JSON.stringify(todos));
+    compltodos.push(todo);
+    //
+    if(todo.parentElement.classList.contains('completed')){
+        localStorage.setItem('compltodos',JSON.stringify(compltodos));
+    }
+    else{
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }
 }
 
 //get back from storage
